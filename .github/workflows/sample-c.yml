@@ -1,0 +1,22 @@
+name: CICD
+
+on:  
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ] 
+
+jobs:   
+  predeploy:
+    runs-on: ubuntu-latest       
+    steps:
+      # This step checks out a copy of your repository.
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+      uses: actions/setup-dotnet@v2.1.0
+      with:
+        dotnet-version: 5.0.x 
+      - name: dotnet restore 
+        run: dotnet restore
+      - name: dotnet build
+        run: dotnet build -c release --no-restore

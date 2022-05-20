@@ -25,8 +25,9 @@ jobs:
        run: |
          dir
          ./posts/build-net-5-github-actions/MyApp.Tests/MyApp.Tests.csproj
-     - name: dotnet restore 
-       run: dotnet restore 
+         dotnet restore 
+#      - name: dotnet restore 
+#        run: dotnet restore 
      - name: dotnet build
        run: dotnet build -c release --no-restore
 #        run:|

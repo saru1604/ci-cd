@@ -21,7 +21,7 @@ jobs:
      - name: direc
        run:
          dir
-         ./posts/build-net-5-github-actions/MyApp.Tests
+         ./posts/build-net-5-github-actions/MyApp.Tests/MyApp.Tests.csproj
      - name: dotnet restore 
        run: dotnet restore 
      - name: dotnet build

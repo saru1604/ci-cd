@@ -13,7 +13,7 @@ jobs:
       # This step checks out a copy of your repository.
      - name: checkout
        uses: actions/checkout@v2
-     - name: setup run
+#      - name: setup run
 #        working-directory: D:\temp\docu\ci-cd\
        
        

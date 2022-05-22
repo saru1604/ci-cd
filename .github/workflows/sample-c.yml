@@ -27,13 +27,12 @@ jobs:
          ./posts/build-net-5-github-actions/MyApp.Tests/MyApp.Tests.csproj
          dotnet restore
          dotnet build -c release --no-restore
-         cd: D:/docu/ci-cd/posts/build-net-5-github-actions
-         git clone 
+         
 #      - name: dotnet restore 
 #        run: dotnet restore 
 #      - name: dotnet build
 #        run: dotnet build -c release --no-restore
 #        run:
-         git clone 
+          
        
       

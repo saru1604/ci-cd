@@ -13,6 +13,7 @@ jobs:
       # This step checks out a copy of your repository.
      - name: checkout
        uses: actions/checkout@v2
+        echo $pwd
 #      - name: setup run
 #        working-directory: D:\temp\docu\ci-cd\
        
@@ -27,6 +28,8 @@ jobs:
          ./posts/build-net-5-github-actions/MyApp.Tests/MyApp.Tests.csproj
          dotnet restore
          dotnet build -c release --no-restore
+         echo $pwd
+         ./test.ps1
          
 #      - name: dotnet restore 
 #        run: dotnet restore 

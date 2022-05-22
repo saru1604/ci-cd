@@ -28,10 +28,11 @@ jobs:
          ./posts/build-net-5-github-actions/MyApp.Tests/MyApp.Tests.csproj
          dotnet restore
          dotnet build -c release --no-restore
-     - name: powershell    
-       run: |
-         echo $pwd
-         ./test.ps1
+          ./test.ps1
+#      - name: powershell    
+#        run: |
+#          echo $pwd
+        
          
 #      - name: dotnet restore 
 #        run: dotnet restore 

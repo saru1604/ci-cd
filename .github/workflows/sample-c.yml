@@ -12,7 +12,7 @@ jobs:
     steps:
       # This step checks out a copy of your repository.
      - name: checkout
-       uses: actions/checkout@v2
+       uses: actions/checkout@v3
         echo $pwd
 #      - name: setup run
 #        working-directory: D:\temp\docu\ci-cd\

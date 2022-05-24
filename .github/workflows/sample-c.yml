@@ -29,7 +29,7 @@ jobs:
         
     - name: Install dependencies
       run:
-       ./posts/build-net-5-github-actions/MyApp/
+       .posts/build-net-core-using-gitlab-ci/MyApp.Tests/MyApp.Tests.csproj
        dotnet restore
       
     - name: Build

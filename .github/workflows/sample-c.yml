@@ -29,7 +29,7 @@ jobs:
         
     - name: Install dependencies
       run:
-       ./post
+       ./posts/build-net-5-github-actions/MyApp/
        dotnet restore
       
     - name: Build

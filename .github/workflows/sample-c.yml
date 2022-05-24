@@ -1,44 +1,43 @@
-name: CICD
+name: build
 
-on:  
+on:
   push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ] 
+    branches: [ main ]
+    paths:
+    - '**.cs'
+    - '**.csproj'
 
-jobs:   
-  predeploy:
-    runs-on: windows-latest       
+env:
+  DOTNET_VERSION: '5.0.301' # The .NET SDK version to use
+
+jobs:
+  build:
+
+    name: build-${{matrix.os}}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
     steps:
-      # This step checks out a copy of your repository.
-     - name: checkout
-       uses: actions/checkout@v2
-#         echo $pwd
-#      - name: setup run
-#        working-directory: D:\temp\docu\ci-cd\
-       
-       
-     - name: Setup .NET
-       uses: actions/setup-dotnet@v1
-       with:
-         dotnet-version: 6.0.202
-     - name: direc
-       run: |
-         dir
-         ./posts/build-net-5-github-actions/MyApp.Tests/MyApp.Tests.csproj
-         dotnet restore
-         dotnet build -c release --no-restore
-          ./test.ps1
-#      - name: powershell    
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+
+    - name: Install dependencies
+      run: dotnet restore
+      
+    - name: Build
+      run: |
+       dotnet build --configuration Release --no-restore
+       ./test.ps1
+#      steps2:
+#      - name: dep
 #        run: |
-#          echo $pwd
-        
-         
-#      - name: dotnet restore 
-#        run: dotnet restore 
-#      - name: dotnet build
-#        run: dotnet build -c release --no-restore
-#        run:
+#         ./test.ps1
           
        
       

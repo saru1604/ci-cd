@@ -26,9 +26,11 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
-
+        
     - name: Install dependencies
-      run: dotnet restore
+      run:
+       ./post
+       dotnet restore
       
     - name: Build
       run: |
